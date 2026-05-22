@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockPredictor | B2B Logistics Optimization</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    <div class="container">
+        <header>
+            <h1>StockPredictor <span>Enterprise</span></h1>
+            <p>Optimize your warehouse. Eliminate dead stock.</p>
+        </header>
+
+        <main>
+            <div class="glass-panel upload-section" id="upload-section">
+                <h2>Upload Orders Data</h2>
+                <p>Drag and drop your `orders.csv` export from Shopify, Amazon, or your WMS.</p>
+                <div class="drop-zone" id="drop-zone">
+                    <span id="drop-text">Click or Drag CSV Here</span>
+                    <input type="file" id="file-input" accept=".csv" hidden>
+                </div>
+                <button id="demo-btn" class="btn-secondary">Or Run with Demo Data</button>
+            </div>
+
+            <div class="dashboard hidden" id="dashboard">
+                <div class="metric-cards">
+                    <div class="card glass-panel highlight">
+                        <h3>Estimated Savings</h3>
+                        <p class="savings-value" id="savings-val">$0</p>
+                        <span class="badge">Projected 30 Days</span>
+                    </div>
+                    <div class="card glass-panel">
+                        <h3>Warehouse Space Freed</h3>
+                        <p id="space-val">0 sq ft</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel chart-container">
+                    <h2>Demand vs ARIMA/LSTM Prediction</h2>
+                    <canvas id="predictionChart"></canvas>
+                </div>
+                
+                <button id="reset-btn" class="btn-secondary mt">Run Another Analysis</button>
+            </div>
+            
+            <div class="loader hidden" id="loader">
+                <div class="spinner"></div>
+                <p>Running ARIMA & LSTM Neural Network on Differentials...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
